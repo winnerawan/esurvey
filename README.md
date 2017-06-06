@@ -1,12 +1,12 @@
-#E-SURVEY
+# E-SURVEY
 
-##Build with Spark Java & MongoDB
+## Build with Spark Java & MongoDB
 
-###[![Build Status](https://api.travis-ci.org/winnerawan/esurvey.svg?branch=master)](https://travis-ci.org/winnerawan/esurvey)
+### [![Build Status](https://api.travis-ci.org/winnerawan/esurvey.svg?branch=master)](https://travis-ci.org/winnerawan/esurvey)
 
-###REST API & WEB APPS
+### REST API & WEB APPS
 
-##License
+## License
 
 ```html
 /****************************************************************************
