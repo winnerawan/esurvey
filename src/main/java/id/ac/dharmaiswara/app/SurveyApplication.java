@@ -1,13 +1,13 @@
 package id.ac.dharmaiswara.app;
 
 
-import id.ac.dharmaiswara.app.controller.SurveyController;
-import id.ac.dharmaiswara.app.db.DatabaseHelper;
-import id.ac.dharmaiswara.app.model.UserType;
-import id.ac.dharmaiswara.app.utils.ApiEndPoint;
-import id.ac.dharmaiswara.app.utils.JsonUtil;
+import id.ac.dharmaiswara.app.controller.RESTController;
+import id.ac.dharmaiswara.app.controller.WEBController;
+import id.ac.dharmaiswara.app.db.MySQLAdapter;
+import id.ac.dharmaiswara.app.service.RESTService;
+import id.ac.dharmaiswara.app.service.WEBService;
+import org.sql2o.Sql2o;
 
-import static id.ac.dharmaiswara.app.utils.JsonUtil.json;
 import static spark.Spark.*;
 
 /**
@@ -18,19 +18,25 @@ import static spark.Spark.*;
  */
 public class SurveyApplication {
 
-    private SurveyApplication() {
+    public static void init(MySQLAdapter mySQLAdapter) {
 
-        new DatabaseHelper();
+        Sql2o mysql = mySQLAdapter.getMysql();
 
-        post(ApiEndPoint.RESTAPI.ENDPOINT_LOGIN, (request, response) -> {
-            String userType = request.queryParams("type");
-            UserType type = new UserType(userType);
-            return JsonUtil.toJson(SurveyController.setUserType(type));
-        });
+        staticFileLocation("/public");
+
+        RESTService restService = new RESTService(mysql);
+        WEBService webService = new WEBService(mysql);
+
+        new RESTController(restService);
+        new WEBController(webService);
+
     }
 
+    public static void main(MySQLAdapter _mySQLAdapter) {
+        init(_mySQLAdapter);
+    }
 
     public static void main(String[] args) {
-        new SurveyApplication();
+        init(new MySQLAdapter());
     }
 }

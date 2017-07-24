@@ -11,28 +11,27 @@ import org.mongodb.morphia.annotations.Id;
 public class Type {
 
     @Id
-    private String id;
-    private String type;
+    private String type_id;
+    private String type_name;
 
-    public Type() { }
-
-    public Type(String type) {
-        this.type = type;
+    public Type(String type_id, String type_name) {
+        this.type_id = type_id;
+        this.type_name = type_name;
     }
 
-    public String getId() {
-        return id;
+    public String getType_id() {
+        return type_id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setType_id(String type_id) {
+        this.type_id = type_id;
     }
 
-    public String getType() {
-        return type;
+    public String getType_name() {
+        return type_name;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setType_name(String type_name) {
+        this.type_name = type_name;
     }
 }
