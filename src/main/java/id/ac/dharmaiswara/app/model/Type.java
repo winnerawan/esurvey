@@ -8,15 +8,15 @@ import org.mongodb.morphia.annotations.Id;
  * prohibited Proprietary and confidential
  * Written by Winnerawan T <winnerawan@gmail.com>, May 2017
  */
-public class UserType {
+public class Type {
 
     @Id
     private String id;
     private String type;
 
-    public UserType() { }
+    public Type() { }
 
-    public UserType(String type) {
+    public Type(String type) {
         this.type = type;
     }
 
