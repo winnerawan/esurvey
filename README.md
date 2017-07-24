@@ -24,4 +24,8 @@ Written by Winnerawan T <winnerawan@gmail.com>, May 2017
 ****************************************************************************/
 ```
 
+### Requirements
+  1. Java 8
+  2. MySQL
+
 ## EOF
