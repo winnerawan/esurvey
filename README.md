@@ -1,6 +1,6 @@
 # E-SURVEY
 
-## Build with Spark Java & MongoDB
+## Build with Spark Java & MySQL
 
 ![alt tag](https://raw.githubusercontent.com/winnerawan/esurvey/master/esurveyindex.png)
 
